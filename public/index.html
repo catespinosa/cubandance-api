@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Catherine's javascript development course final project</title>
+
+    <!-- Bootstrap -->
+<!--     <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+ -->    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  
+
+  <div class="container">
+
+   <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+               <!--  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div> -->
+                <div class="modal-body">
+                      <!-- TRACKS HANDLEBARS TEMPLATE -->
+                      <script id="tracks-template" type="text/x-handlebars-template">
+                        {{#each rows}}
+                          <section>
+                              <section class="albumcover pull-left">
+                                  <img src="{{image}}" alt="" />
+                              </section>
+                                <h5>{{title}}</h5>
+                                 <h6>{{artist}}</h6>
+                                 <!--PLAYER-->
+                                 <audio controls>
+                                   <source src="{{link}}" type="audio/mpeg" />
+                                 </audio>
+                          </section>
+
+                        {{/each}}
+
+                    </script>
+
+                    <section id="loadplaylists" class="container"></section>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clearcontents">Close</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end Modal-->
+
+
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse navcolor">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> -->
+          <a class="navbar-brand logocolor" href="#" style="color: white;">Dance Cuban Style</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+      <!--     <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">Classes</a></li>
+            <li><a href="#contact">Submit your event</a></li> -->
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li> -->
+          </ul>
+         <!--  <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
+<div class="row">
+
+
+
+<div class="col-sm-6 col-md-4 pull-left">
+    <div class="thumbnail">
+      <img src="images/timba-thumb.jpg" />
+      <div class="caption">
+        <h3 class="myheaders">Cuban Salsa and Rueda de Casino</h3>
+        <p>Casino refers to Cuban style salsa in partners, while Rueda de Casino, is a circle, or wheel (rueda) of partners dancing in unison in response to the calls of the leader in the group.  “Calls” in a Rueda include turns patterns, footwork sequences, and various games.</p>
+        <p><a href="#" class="btn btn-primary mybtn" role="button" id="timbaBtn">Play tracks</a></p>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="col-sm-6 col-md-4 pull-left">
+    <div class="thumbnail">
+      <img src="images/son-thumb.jpg" />
+      <div class="caption">
+        <h3 class="myheaders">Son</h3>
+        <p>Son combines the structure and feel of the Spanish canción with Afro-Cuban traits and percussion. The great thing about adding son to your dance repertoire is that you will learn how to dance on "contratiempo" or against the beat. This means son is danced on the two count.</p>
+        <p><a href="#" class="btn btn-primary mybtn" role="button" id="sonBtn">Play tracks</a></p>
+      </div>
+    </div>
+</div>
+
+
+
+
+<div class="col-sm-6 col-md-4 pull-left">
+    <div class="thumbnail">
+     <img src="images/rumba-thumb.jpg" />
+      <div class="caption">
+        <h3 class="myheaders">Rumba</h3>
+        <p>Vocal improvisation, elaborate dancing and polyrhythmic drumming are the key components of all rumba styles (yambú, guaguancó and columbia). Cajones (wooden boxes) were used as drums until the early 20th century, when they were replaced by tumbadoras (conga drums).</p>
+        <p><a href="#" class="btn btn-primary mybtn" role="button" id="rumbaBtn">Play tracks</a></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div>&nbsp;</div>
+
+
+
+
+
+
+
+
+</div><!--container ends-->
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--     <script src="lib/jquery/dist/jquery.js"></script>
+ -->    
+<!-- <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>  -->
+<!-- <script src="js/keys.js"></script> -->
+
+ <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+ -->    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+   <!--  <script src="lib/spotify-web-api-js/src/spotify-web-api.js"></script> -->
+    <!-- <script src="lib/handlebars/handlebars.js"></script> -->    
+    <script src="js/new_app_1.js"></script>
+  </body>
+</html>
